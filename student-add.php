@@ -21,25 +21,25 @@
                         </h3>
                     </div>
                     <div class="card-body">
-                        <form action="" method="post">
+                        <form action="code.php" method="post">
                             <div class="mb-3">
                                 <label for="">Full Name</label>
                                 <input type="text" name="fullname" id="" class='form-control'>
                             </div>
                             <div class="mb-3">
                                 <label for="">Email</label>
-                                <input type="text" name="fullname" id="" class='form-control'>
+                                <input type="email" name="email" id="" class='form-control'>
                             </div>
                             <div class="mb-3">
                                 <label for="">Phone</label>
-                                <input type="text" name="fullname" id="" class='form-control'>
+                                <input type="text" name="phone" id="" class='form-control'>
                             </div>
                             <div class="mb-3">
                                 <label for="">Course</label>
-                                <input type="text" name="fullname" id="" class='form-control'>
+                                <input type="text" name="course" id="" class='form-control'>
                             </div>
                             <div class="mb-3">
-                                <button type="submit" name="save_student_btn " class="btn btn-primary">Save
+                                <button type="submit" name="save_student_btn" class="btn btn-primary">Save
                                     Student</button>
                             </div>
                         </form>

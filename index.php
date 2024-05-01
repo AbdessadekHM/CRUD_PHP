@@ -1,3 +1,4 @@
+<?php session_start()?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +14,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 mt-4">
+                <?php if(isset($_SESSION['message'])):?>
+                <h5 class='alert alert-success'>
+                    <?=  $_SESSION['message'] ?>
+                    <?php endif?>
+                </h5>
                 <div class="card">
                     <div class="card-header">
                         <h3>
