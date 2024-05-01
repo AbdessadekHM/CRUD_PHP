@@ -60,6 +60,14 @@ session_start()?>
                                     <td>
                                         <a href="student-edit.php?id=<?= $row->id ?>" class="btn btn-primary">Edit</a>
                                     </td>
+                                    <td>
+                                        <form action="delete.php" method="post">
+                                            <input type="hidden" name="id" value="<?=$row->id ?>">
+                                            <button type="submit" name="delete_student_btn" class="btn btn-danger">
+                                                Delete
+                                            </button>
+                                        </form>
+                                    </td>
                                 </tr>
                                 <?php
                                     }
