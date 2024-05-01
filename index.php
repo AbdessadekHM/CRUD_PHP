@@ -1,4 +1,6 @@
-<?php session_start()?>
+<?php 
+include('dbcon.php');
+session_start()?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,14 +19,60 @@
                 <?php if(isset($_SESSION['message'])):?>
                 <h5 class='alert alert-success'>
                     <?=  $_SESSION['message'] ?>
-                    <?php endif?>
                 </h5>
+                <?php 
+                unset($_SESSION['message']);
+                endif?>
+
                 <div class="card">
                     <div class="card-header">
                         <h3>
                             PHP PDO CRUD
                             <a href="student-add.php" class="btn btn-primary float-end">Add Student</a>
                         </h3>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Full Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Course</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $query = 'SELECT * FROM students';
+                                $statement = $conn->prepare($query);
+                                $statement->execute();
+                                $statement->setFetchMode(PDO::FETCH_OBJ);
+                                $result = $statement->fetchAll();//PDO::FETCH_ASSOC
+                                if($result){
+                                    foreach ($result as $row) {?>
+                                <tr>
+                                    <td><?=$row->id?></td>
+                                    <td><?=$row->fullname?></td>
+                                    <td><?=$row->email?></td>
+                                    <td><?=$row->phone?></td>
+                                    <td><?=$row->course?></td>
+                                    <td>
+                                        <a href="student-edit.php?id=<?= $row->id ?>" class="btn btn-primary">Edit</a>
+                                    </td>
+                                </tr>
+                                <?php
+                                    }
+                                    ?>
+                                <?php
+                                }else{
+                                ?>
+                                <td colspan=5>NOT FOUND</td>
+                                <?php 
+                            }
+                                ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

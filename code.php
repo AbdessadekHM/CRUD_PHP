@@ -23,11 +23,11 @@ if(isset($_POST['save_student_btn'])){
     if($query_execute){
         $_SESSION['message'] = "Insterted Successfully";
         header('Location: index.php');
-        // exit(0);
+        exit(0);
     }else{
         $_SESSION['message'] = 'Not insterted Successfully';
         header('Location: index.php');
-        // exit(0);
+        exit(0);
     }
 
 }
